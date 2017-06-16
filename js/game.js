@@ -167,7 +167,7 @@ window.onclick = function(event) {
 
 ion.sound({
   sounds: [
-    {name: "Cursor1", volume: 1},
+    {name: "Cursor1"},
     {name: "coin2"},
     {name: "skyhigh", loop:true}
   ],
@@ -178,7 +178,7 @@ ion.sound({
   // multiple sounds at once
   multiplay: true,
   //90% volume
-  volume: 0.3
+  volume: 0.9
 });
 
 // Play sound
