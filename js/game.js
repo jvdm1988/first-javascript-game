@@ -168,25 +168,25 @@ window.onclick = function(event) {
 //---------------------------------------------------------
 // Function to active sound on click rabbit1
 
-ion.sound({
-    sounds: [
-            {name: "water_droplet"},
-            {name: "coin2"},
-            {name: "skyhigh.mp3"}
-          ],
-
-    // path to the folderwhere the sound files are
-    path: "../sounds/sounds/",
-
-    //starts loading sound files even before you use them
-    preload: true,
-
-    // multiple sounds at once
-    multiplay: true,
-
-    //90% volume
-    volume: 0.9
-});
+// ion.sound({
+//     sounds: [
+//             {name: "water_droplet"},
+//             {name: "coin2"},
+//             {name: "skyhigh.mp3"}
+//           ],
+//
+//     // path to the folderwhere the sound files are
+//     path: "../sounds/sounds/",
+//
+//     //starts loading sound files even before you use them
+//     preload: true,
+//
+//     // multiple sounds at once
+//     multiplay: true,
+//
+//     //90% volume
+//     volume: 0.9
+// });
 
 // play sound
 
