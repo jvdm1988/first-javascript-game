@@ -1,4 +1,6 @@
 $('document').ready(function() {
+  ion.sound.play("skyhigh");
+  
   $(".clickMe").click(function() {
     $('.namePrompt').hide();
     var nameValue = $(".input").val();
@@ -15,7 +17,6 @@ var timeUp;
 // Function to start game and activate countdown when click start:
 
 var startGame = function() {
-  ion.sound.play("skyhigh");
   if (timeUp) {
     return;
   }
