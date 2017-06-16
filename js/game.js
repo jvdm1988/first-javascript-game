@@ -1,77 +1,105 @@
+$('document').ready(function(){
+  $(".clickMe").click(function(){
+    $('.namePrompt').hide();
+    var nameValue = $(".input").val();
+    $('.playerName').html(nameValue);
+  });
+});
 
-$(".rabbit1").css ("display", "none");
+$(".rabbit1").css("display", "none");
+$(".carrot").css("display", "none");
 
 var timeUp;
+//-----------------------------------------------------------
+// pop up screen name input
+
 
 //-----------------------------------------------------------
-var startGame = function () {
+// function to start game and activate countdown when click start:
+
+var startGame = function() {
+  ion.sound.play("skyhigh");
   if (timeUp) {
     return;
   }
   // Function for 30 sec countdown:
-  timeUp=setInterval(timer, 1000); //1000 will run it every 1 second
+  timeUp = setInterval(timer, 1000); //1000 will run it every 1 second
   // no var on timeUp because we want it global
 
-  var count=30;
+  var count = 30;
 
   function timer() {
-    count=count-1;
+    count = count - 1;
     $("h2").replaceWith("<h2> " + count + " </h2>");
 
     if (count <= 0) {
       clearInterval(timeUp);
       timeUp = null;
-      clearInterval(first);
-      clearInterval(second);
-      clearInterval(third);
+      endGame();
     }
-   }
+  }
 
-   // Add 1 rabbit setinterval timer, 2000
-  //  var rabbitOne = setInterval(randomRabbit, 1000);
-    first = setInterval(randomRabbit, 1000);
-    second = setInterval(randomRabbit, 3000);
-    third = setInterval(randomRabbit, 5000);
+  first = setInterval(randomRabbit, 1000);
+  second = setInterval(randomRabbit, 3000);
+  third = setInterval(randomRabbit, 5000);
+  fourth = setInterval(randomCarrot, 4000);
 
-  //  setTimeout(function(){
-  //    clearInterval(rabbitOne);
-  //  }, 3000);
 };
 
-var endGame = function () {
+var endGame = function() {
   clearInterval(timeUp);
 
   clearInterval(first);
   clearInterval(second);
   clearInterval(third);
+  clearInterval(fourth);
 };
 
 //---------------------------------------------------------
-//function to randomly show rabbit:
-var randomRabbit = function () {
-  var row =  Math.floor(Math.random() * 8) + 1;
+//function to randomly show rabbit and carrot:
+
+var randomRabbit = function() {
+  var row = Math.floor(Math.random() * 8) + 1;
   var col = Math.floor(Math.random() * 10) + 1;
 
-  $(".cell-" + row + "-" + col + " > .rabbit1").css ("display", "inline");
-  $(".cell-" + row + "-" + col + " > .grass1").css ("display", "none");
+  $(".cell-" + row + "-" + col + " > .rabbit1").css("display", "inline");
+  $(".cell-" + row + "-" + col + " > .grass1").css("display", "none");
+  $(".cell-" + row + "-" + col + " > .carrot").css("display", "none");
 
-
-setTimeout(function () {
-  $(".cell-" + row + "-" + col + " > .rabbit1").css ("display", "none");
-  $(".cell-" + row + "-" + col + " > .grass1").css ("display", "inline");
-}, 2000);
+  setTimeout(function() {
+    $(".cell-" + row + "-" + col + " > .rabbit1").css("display", "none");
+    $(".cell-" + row + "-" + col + " > .grass1").css("display", "inline");
+    $(".cell-" + row + "-" + col + " > .carrot").css("display", "none");
+  }, 2000);
 };
+
+var randomCarrot = function() {
+  var row = Math.floor(Math.random() * 8) + 1;
+  var col = Math.floor(Math.random() * 10) + 1;
+
+  $(".cell-" + row + "-" + col + " > .rabbit1").css("display", "none");
+  $(".cell-" + row + "-" + col + " > .grass1").css("display", ("none"));
+  $(".cell-" + row + "-" + col + " > .carrot").css("display", "inline");
+
+  setTimeout(function() {
+    $(".cell-" + row + "-" + col + " > .rabbit1").css("display", "none");
+    $(".cell-" + row + "-" + col + " > .grass1").css("display", "inline");
+    $(".cell-" + row + "-" + col + " > .carrot").css("display", "none");
+  }, 3000);
+};
+
+
 //-----------------------------------------------------------
 // function to start game:
 
-$(document).ready(function () {
-  $(".start").click (function () {
+$(document).ready(function() {
+  $(".start").click(function() {
     startGame();
   });
 
-// function to end game:
+  // function to end game:
 
-  $(".end").click (function () {
+  $(".end").click(function() {
     endGame();
   });
 });
@@ -82,20 +110,33 @@ $(document).ready(function () {
 //   });
 // });
 //----------------------------------------------------------
+//function for rabbit score:
 
-//function for score:
-var score = 0;
+var myScore = 0;
 
-function gameScore() {
-  score=score+1;
-  $("h4").replaceWith("<h4> SCORE: " + score + " </h4>");
-  }
+function rabbitScore() {
+  myScore += 1;
+  $("h4").replaceWith("<h4> SCORE: " + myScore + " </h4>");
+}
 
-$(".rabbit1").click (function () {
-
-  gameScore();
+$(".rabbit1").click(function() {
+  rabbitScore();
 });
 
+// function for carrot score:
+
+
+function carrotScore() {
+  myScore += 2;
+  $("h4").replaceWith("<h4> SCORE: " + myScore + " </h4>");
+}
+
+$(".carrot").click(function() {
+
+  carrotScore();
+});
+
+//----------------------------------------------------
 // functions instructions modal pop up
 
 // Get the modal
@@ -109,50 +150,54 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-    modal.style.display = "block";
+  modal.style.display = "block";
 };
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+  modal.style.display = "none";
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 };
 
 //---------------------------------------------------------
+// Function to active sound on click rabbit1
 
-// // init bunch of sounds
-// ion.sound({
-//     sounds: [
-//         {name: "beer_can_opening"},
-//         {name: "bell_ring"},
-//         {name: "branch_break"},
-//         {name: "button_click"}
-//     ],
-//
-//     // path to the folderwhere the sound files are
-//     path: "./sounds/sounds/",
-//
-//     //starts loading sound files even before you use them
-//     preload: true,
-//
-//     // multiple sounds at once
-//     multiplay: true,
-//
-//     //90% volume
-//     volume: 0.9
-// });
-//
-// // play sound
-//
-// $(document).ready (function () {
-//   $(".open-beer").click (function () {
-//
-//   ion.sound.play("beer_can_opening");
-// });
-// });
+ion.sound({
+    sounds: [
+            {name: "water_droplet"},
+            {name: "coin2"},
+            {name: "skyhigh.mp3"}
+          ],
+
+    // path to the folderwhere the sound files are
+    path: "../sounds/sounds/",
+
+    //starts loading sound files even before you use them
+    preload: true,
+
+    // multiple sounds at once
+    multiplay: true,
+
+    //90% volume
+    volume: 0.9
+});
+
+// play sound
+
+$(document).ready (function () {
+  // $(".rabbit1").click (function () {
+  // ion.sound.play("water_droplet");
+  // });
+  // $(".carrot").click (function () {
+  // ion.sound.play("coin2");
+  // });
+
+
+
+});
