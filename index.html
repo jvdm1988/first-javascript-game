@@ -13,7 +13,27 @@
 </head>
 
 <body>
+  <div id="myModal" class="modal">
 
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>INSTRUCTIONS</h2>
+      </div>
+      <div class="modal-body">
+        <p>The rabbits are hiding in the grass and will occasionally appear.</p>
+        <p>Click on the rabbits to increase your score and catch as many as you can.</p>
+        <p>Rabbits love carrots! Hunt for carrots for double points.</p>
+      </div>
+      <div class="modal-footer">
+        <h3>Click "start game" to start hunting!</h3>
+      </div>
+
+    </div>
+    <!-- closing div modal-content -->
+  </div>
+  <!-- closing div my-Modal & modal  -->
   <div class="hitthedot">
 
     <div class="header">
@@ -33,27 +53,6 @@
 
       <button id="myBtn">INSTRUCTIONS</button>
 
-      <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>INSTRUCTIONS</h2>
-          </div>
-          <div class="modal-body">
-            <p>The rabbits are hiding in the grass and will occasionally appear.</p>
-            <p>Click on the rabbits to increase your score and catch as many as you can.</p>
-            <p>Rabbits love carrots! Hunt for carrots for double points.</p>
-          </div>
-          <div class="modal-footer">
-            <h3>Click "start game" to start hunting!</h3>
-          </div>
-
-        </div>
-        <!-- closing div modal-content -->
-      </div>
-      <!-- closing div my-Modal & modal  -->
 
     </div>
     <!-- closing div gamenav -->
@@ -61,7 +60,7 @@
       <tr>
         <td class="cell-1-1">
           <img src="./images/grass.svg" alt="" class="grass1">
-          <img src="./images/rabbit.svg" alt="" class="rabbit1">
+          <img src="./images/rabbit.svg" alt="" class="rabbit1" class="rabbitplus" <p>+1</p>
           <img src="./images/Carrot.png" alt="" class="carrot">
         </td>
         <td class="cell-1-2">
@@ -491,8 +490,6 @@
     </div>
 
   </div> <!-- closing div hitthedot -->
-</div> <!-- closing div subdiv -->
-
 
   <div class="namePrompt">
     <div class="inputbox">

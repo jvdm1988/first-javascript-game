@@ -10,6 +10,7 @@ $('document').ready(function() {
 
 $(".rabbit1").css("display", "none");
 $(".carrot").css("display", "none");
+$(".rabbitplus").css("display", "none");
 
 var timeUp;
 
@@ -166,7 +167,7 @@ window.onclick = function(event) {
 
 ion.sound({
   sounds: [
-    {name: "water_droplet", volume: 1},
+    {name: "snap", volume: 1},
     {name: "coin2"},
     {name: "skyhigh", loop:true}
   ],
@@ -177,14 +178,14 @@ ion.sound({
   // multiple sounds at once
   multiplay: true,
   //90% volume
-  volume: 0.7
+  volume: 0.3
 });
 
 // Play sound
 
 $(document).ready(function() {
   $(".rabbit1").click(function() {
-    ion.sound.play("water_droplet");
+    ion.sound.play("snap");
   });
   $(".carrot").click(function() {
     ion.sound.play("coin2");

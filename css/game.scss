@@ -6,8 +6,6 @@ html {
   /* right cyan */
 }
 
-
-
 .hitthedot {
   background-image: url("../images/grasslong.svg");
   background-repeat: no-repeat;
@@ -22,7 +20,7 @@ html {
 body {
   background-image: url("../images/sunflower1.svg");
   background-repeat: no-repeat;
-  background-position: -190px -260px;
+  background-position: -170px -240px;
   height: 100%;
   background-size: 691px;
 }
@@ -31,7 +29,7 @@ body {
   background-color: #E8AA8C;
   opacity: 0.7;
   width: 577px;
-  margin: -370px auto auto;
+  margin: -390px auto auto;
   border-radius: 20px;
 }
 
@@ -71,6 +69,7 @@ h6 {
   font-size: 36px;
   margin-left: 20px;
 }
+
 // game navigation buttons
 button {
   color: #5E616A;
@@ -81,14 +80,14 @@ button {
   display: block;
   margin-top: 60px;
   margin-left: 120px;
-  height: 80px;
-  width: 160px;
+  height: 90px;
+  width: 170px;
   border-radius: 20px;
 }
 // start instructions modal
 .modal {
   display: none;
-  position: fixed;
+  position: relative;
   z-index: 1;
   left: 0;
   top: 0;
@@ -99,12 +98,19 @@ button {
   background-color: rgba(0,0,0,0.7);
 }
 
+/* Modal Content */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.6s;
+  animation-name: animatetop;
+  animation-duration: 0.6s;
   border: 1px solid #888;
-  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .close {
@@ -149,20 +155,7 @@ button {
     font-size: 16px;
   }
 }
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.6s;
-  animation-name: animatetop;
-  animation-duration: 0.6s;
-}
+
 /* Add Animation */
 @-webkit-keyframes animatetop {
   from {
