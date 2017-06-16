@@ -1,5 +1,5 @@
-$('document').ready(function(){
-  $(".clickMe").click(function(){
+$('document').ready(function() {
+  $(".clickMe").click(function() {
     $('.namePrompt').hide();
     var nameValue = $(".input").val();
     $('.playerName').html(nameValue);
@@ -10,12 +10,9 @@ $(".rabbit1").css("display", "none");
 $(".carrot").css("display", "none");
 
 var timeUp;
-//-----------------------------------------------------------
-// pop up screen name input
-
 
 //-----------------------------------------------------------
-// function to start game and activate countdown when click start:
+// Function to start game and activate countdown when click start:
 
 var startGame = function() {
   ion.sound.play("skyhigh");
@@ -23,7 +20,7 @@ var startGame = function() {
     return;
   }
   // Function for 30 sec countdown:
-  timeUp = setInterval(timer, 1000); //1000 will run it every 1 second
+  timeUp = setInterval(timer, 1000);
   // no var on timeUp because we want it global
 
   var count = 30;
@@ -56,7 +53,7 @@ var endGame = function() {
 };
 
 //---------------------------------------------------------
-//function to randomly show rabbit and carrot:
+//Function to randomly show rabbit and carrot:
 
 var randomRabbit = function() {
   var row = Math.floor(Math.random() * 8) + 1;
@@ -90,14 +87,14 @@ var randomCarrot = function() {
 
 
 //-----------------------------------------------------------
-// function to start game:
+// Function to start game:
 
 $(document).ready(function() {
   $(".start").click(function() {
     startGame();
   });
 
-  // function to end game:
+  // Function to end game:
 
   $(".end").click(function() {
     endGame();
@@ -110,7 +107,7 @@ $(document).ready(function() {
 //   });
 // });
 //----------------------------------------------------------
-//function for rabbit score:
+//Function for rabbit score:
 
 var myScore = 0;
 
@@ -123,8 +120,7 @@ $(".rabbit1").click(function() {
   rabbitScore();
 });
 
-// function for carrot score:
-
+// Function for carrot score:
 
 function carrotScore() {
   myScore += 2;
@@ -132,12 +128,11 @@ function carrotScore() {
 }
 
 $(".carrot").click(function() {
-
   carrotScore();
 });
 
 //----------------------------------------------------
-// functions instructions modal pop up
+// Functions instructions modal pop up
 
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -168,36 +163,29 @@ window.onclick = function(event) {
 //---------------------------------------------------------
 // Function to active sound on click rabbit1
 
-// ion.sound({
-//     sounds: [
-//             {name: "water_droplet"},
-//             {name: "coin2"},
-//             {name: "skyhigh.mp3"}
-//           ],
-//
-//     // path to the folderwhere the sound files are
-//     path: "../sounds/sounds/",
-//
-//     //starts loading sound files even before you use them
-//     preload: true,
-//
-//     // multiple sounds at once
-//     multiplay: true,
-//
-//     //90% volume
-//     volume: 0.9
-// });
+ion.sound({
+  sounds: [
+    {name: "water_droplet"},
+    {name: "coin2"},
+    {name: "skyhigh.mp3"}
+  ],
+  // path to the folderwhere the sound files are
+  path: "../sounds/sounds/",
+  //starts loading sound files even before you use them
+  preload: true,
+  // multiple sounds at once
+  multiplay: true,
+  //90% volume
+  volume: 0.9
+});
 
-// play sound
+// Play sound
 
-$(document).ready (function () {
-  // $(".rabbit1").click (function () {
-  // ion.sound.play("water_droplet");
-  // });
-  // $(".carrot").click (function () {
-  // ion.sound.play("coin2");
-  // });
-
-
-
+$(document).ready(function() {
+  $(".rabbit1").click(function() {
+    ion.sound.play("water_droplet");
+  });
+  $(".carrot").click(function() {
+    ion.sound.play("coin2");
+  });
 });
