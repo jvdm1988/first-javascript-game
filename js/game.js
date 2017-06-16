@@ -167,10 +167,10 @@ ion.sound({
   sounds: [
     {name: "water_droplet"},
     {name: "coin2"},
-    {name: "skyhigh.mp3"}
+    {name: "skyhigh", loop:true}
   ],
   // path to the folderwhere the sound files are
-  path: "../sounds/sounds/",
+  path: "./sounds/sounds/",
   //starts loading sound files even before you use them
   preload: true,
   // multiple sounds at once
