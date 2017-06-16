@@ -167,7 +167,7 @@ window.onclick = function(event) {
 
 ion.sound({
   sounds: [
-    {name: "snap", volume: 1},
+    {name: "Cursor1", volume: 1},
     {name: "coin2"},
     {name: "skyhigh", loop:true}
   ],
@@ -185,7 +185,7 @@ ion.sound({
 
 $(document).ready(function() {
   $(".rabbit1").click(function() {
-    ion.sound.play("snap");
+    ion.sound.play("Cursor1");
   });
   $(".carrot").click(function() {
     ion.sound.play("coin2");
