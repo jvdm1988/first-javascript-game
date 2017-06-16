@@ -1,6 +1,6 @@
 $('document').ready(function() {
   ion.sound.play("skyhigh");
-  
+
   $(".clickMe").click(function() {
     $('.namePrompt').hide();
     var nameValue = $(".input").val();
@@ -166,7 +166,7 @@ window.onclick = function(event) {
 
 ion.sound({
   sounds: [
-    {name: "water_droplet"},
+    {name: "water_droplet", volume: 1},
     {name: "coin2"},
     {name: "skyhigh", loop:true}
   ],
@@ -177,7 +177,7 @@ ion.sound({
   // multiple sounds at once
   multiplay: true,
   //90% volume
-  volume: 0.9
+  volume: 0.7
 });
 
 // Play sound
